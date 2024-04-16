@@ -1,4 +1,4 @@
-package Model;
+package kafka.learning.accountservice.Model;
 
 import java.util.Date;
 

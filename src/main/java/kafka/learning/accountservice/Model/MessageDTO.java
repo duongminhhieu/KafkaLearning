@@ -1,4 +1,4 @@
-package Model;
+package kafka.learning.accountservice.Model;
 
 public class MessageDTO {
 
@@ -12,6 +12,9 @@ public class MessageDTO {
         this.toName = toName;
         this.subject = subject;
         this.message = message;
+    }
+
+    public MessageDTO() {
     }
 
     public String getTo() {
