@@ -15,12 +15,14 @@ public class AccountserviceApplication {
     // create a topic Kafka
     @Bean
     NewTopic notification() {
-        return new NewTopic("notification", 2, (short) 1);
+        // topic name, partition, replication factor
+        return new NewTopic("notification", 2, (short) 3);
     }
 
     @Bean
     NewTopic statistic() {
-        return new NewTopic("statistic", 2, (short) 1);
+        // topic name, partition, replication factor
+        return new NewTopic("statistic", 2, (short) 3);
     }
 
 }

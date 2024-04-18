@@ -31,8 +31,17 @@ public class AccountController {
         messageDTO.setMessage("Welcome to our system, we are happy to have you here");
 
 
+
         // send to kafka
-        kafkaTemplate.send("notification", messageDTO);
+        for(int i = 0; i < 100; i ++)
+            kafkaTemplate.send("notification", messageDTO).whenCompleteAsync((result, ex) -> {
+                if (ex != null) {
+                    System.out.println("Error sending message: " + ex.getMessage());
+                } else {
+                    System.out.println("Message sent: " + result.getRecordMetadata().offset());
+                }
+            });
+
         kafkaTemplate.send("statistic", statisticDTO);
 
         return accountDTO;
