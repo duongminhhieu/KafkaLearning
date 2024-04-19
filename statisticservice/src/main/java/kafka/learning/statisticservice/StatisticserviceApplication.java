@@ -21,12 +21,14 @@ public class StatisticserviceApplication {
         return new JsonMessageConverter();
     }
 
-    @Bean
-    DefaultErrorHandler errorHandler(KafkaOperations<String, Object> kafkaTemplate){
-        // Template to send messages to the dead-letter topic
-        // DeadLetterPublishingRecoverer is a MessageRecoverer that sends the failed record to a dead-letter topic.
-        return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(kafkaTemplate), new FixedBackOff(1000L, 2L));
-    }
+//    @Bean
+//    DefaultErrorHandler errorHandler(KafkaOperations<String, Object> kafkaTemplate){
+//        // Template to send messages to the dead-letter topic
+//        // DeadLetterPublishingRecoverer is a MessageRecoverer that sends the failed record to a dead-letter topic.
+//        return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(kafkaTemplate), new FixedBackOff(1000L, 2L));
+//    }
+
+
 
 
 }
