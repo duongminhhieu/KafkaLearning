@@ -24,7 +24,15 @@ public class StatisticService {
     public void listenStatistic(Statistic statistic) {
 
         logger.info("Statistic received: " + statistic.getMessage());
-        statisticRepo.save(statistic);
+        // statisticRepo.save(statistic);
+        throw new RuntimeException("Error");
+    }
+
+    @KafkaListener(id = "dltGroup", topics = "statistic.DLT")
+    public void listenDLT(Statistic statistic) {
+        logger.info("DLT received: " + statistic.getMessage());
+
+        // save to database to re-send to queue
     }
 
 
