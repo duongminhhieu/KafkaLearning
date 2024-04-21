@@ -17,19 +17,19 @@ This project is a learning project for Kafka. It is based on the course "Kafka w
 ### Flow
 
 1. When you create a new account with _name_ and _email_. **AccountService** (producer) will send your infomation to **notification** topic and **statistic** topic.
-  * If message sent, the polling service will store your information into database with status **true**
-  * After 1s, Polling Service will rerun again and send these messages have status **false**.
-  * After 60s, Polling Service will automaticly delete these messages sent in database
-2. At **NotificationService** (consumer), when reiceved message from **Kafka**, the NotificationService will send a email based on the email registered
-3. At **StatisticService** (consumer), if have a exception, it will retry 5 times, after that if fail then store into statistic.DLT topic
+  * If the message is sent, the polling service will store your information in database with the status **true**
+  * After 1s, Polling Service will rerun and send these messages with have status **false**.
+  * After 60 seconds, Polling Service will automatically delete these messages sent to the database
+2. At **NotificationService** (consumer), when receiving the message from **Kafka**, the NotificationService will send an email based on the email registered
+3. At **StatisticService** (consumer), if have the exception, it will retry 5 times, after that if fails then store into statistic.DLT topic
 
 ## Getting Started
 
-This tutorial use MacOs and HomeBrew to start Kafka.
+This tutorial uses MacOs and HomeBrew to start Kafka.
 
 ### 1. Run Zookeeper and Kafka
 
-* First, you must install Kafka with command:
+* First, you must install Kafka with the command:
 
 ```
 brew install kafka
@@ -44,7 +44,7 @@ brew services start kafka
 
 ### 2. Run Multiple Brokers
 
-* Find info of Kafka on MacOs
+* Find infomartion of Kafka on MacOs
 ```
 brew info kafka
 ```
